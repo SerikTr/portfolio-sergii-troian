@@ -1,0 +1,136 @@
+@import "./src/styles/core";
+
+header {
+  background: transparent;
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+    margin: 0 45px;
+
+    .brand {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 5px;
+      border: 2px solid $text-secondary;
+    }
+
+    .nav-items {
+      display: flex;
+      .nav-item {
+        margin: 15px;
+
+        .nav-link {
+          font-size: 22px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 991px) {
+  header {
+    background: aqua;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+
+  // btn
+  .menu-btn {
+    position: absolute;
+    z-index: 15;
+    right: 35px;
+    top: 35px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+
+
+    .btn-line {
+      width: 28px;
+      height: 3px;
+      margin: 0 0 5px 0;
+      background: $text-secondary
+
+    }
+
+    // Rotate Into X With Menu Lines
+     &.close {
+      transform: rotate(180deg);
+
+      .btn-line {
+        // Line 1 - Rotate
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        // Line 2 - Hide
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        // Line 3 - Rotate
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+    }
+  }
+
+  // header and nav menu
+
+
+  header {
+    background: #fffb00;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+
+
+  &.close {
+    top: -100%;
+    transition: all 0.4s ease 0s;
+  }
+    &.active{
+      top: 0;
+      transition: all 0.4s ease 0s;
+    }
+
+    .navigation {
+      flex-flow: column wrap;
+      .brand {
+        display: none;
+      }
+
+      .nav-items {
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  header {
+    background: #ff001e;
+
+    .navigation {
+      .nav-items {
+        margin: 70px auto;
+      }
+    }
+  }
+}
+
+
+
