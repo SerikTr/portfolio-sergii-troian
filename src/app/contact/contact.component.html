@@ -1,1 +1,11 @@
-<p>contact works!</p>
+<section class="contact default-layout">
+  <h1 class="h1">Contact <span>Me</span></h1>
+  <h2 class="h2">This is how you can reach me...</h2>
+
+  <div class="contact-inner">
+    <div class="contact-boxes" *ngFor="let cont of contact">
+      <span>{{cont.name}}</span>
+      <a href="{{cont.href}}" target="_blank">{{cont.link}}</a>
+    </div>
+  </div>
+</section>

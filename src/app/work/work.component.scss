@@ -1,0 +1,88 @@
+@import "./src/styles/core";
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+
+
+  .item {
+    width: 50%;
+    margin: 10px auto;
+
+    .item-img {
+      margin: 5px;
+
+      a img {
+        border: 3px solid $text-primary;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      a img:hover {
+        opacity: 0.5;
+        transition: 1s;
+        border-color: $text-secondary;
+
+      }
+    }
+
+    .inner-button {
+      display: flex;
+      flex-direction: column;
+      margin: 5px;
+
+      button {
+        color: black;
+        padding: 5px 30px;
+        width: 100%;
+        margin-bottom: 4px;
+        font-size: 18px;
+        text-align: start;
+
+        img {
+          margin: 0 5px -5px 0;
+        }
+      }
+    }
+
+
+    .inner-button button:hover {
+      background-color: $text-secondary;
+      transition: 1s;
+    }
+
+    button:active, button:focus {
+      outline: none;
+    }
+
+    button::-moz-focus-inner {
+      border: 0;
+    }
+  }
+}
+
+// media
+//@media screen and(max-width: 768px) {
+//  .projects .item .inner-button {
+//    button {
+//      padding: 3px 5px;
+//      font-size: 14px;
+//      img {
+//        margin-left: 2px;
+//      }
+//    }
+//  }
+//}
+@media screen and(max-width: 768px) {
+  .projects {
+    flex-direction: column;
+    margin: 10px;
+
+    .item {
+      width: 100%;
+    }
+  }
+}

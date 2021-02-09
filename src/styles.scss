@@ -8,16 +8,94 @@
   box-sizing: border-box;
   font-family: $main-fonts;
   color: $text-primary;
+
 }
 
 html, body {
+    background-color: $black-background;
+  cursor: default;
 
-}
+  // scroll
+  ::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    background-color: $blue-background;
+  }
 
-li {
-  list-style: none;
-  a {
-    text-decoration: none;
+  /* ползунок скроллбара */
+  ::-webkit-scrollbar-thumb {
+    background-color: $text-secondary;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px $text-primary;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: $blue-background;
+  }
+
+    .default-layout{
+      padding: 200px 64px 64px 64px;
+      background-color: $black-background;
+      position: absolute;
+      width: 100%;
+      z-index: 9;
+
+      .h1 {
+        font-size: 96px;
+        margin-bottom: 16px;
+        span {
+          color: $text-secondary;
+        }
+      }
+      .h2 {
+        padding: 3px 16px;
+        background-color: $blue-background;
+      }
+    }
+  li {
+    list-style: none;
+  }
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  .active {
+    background-color: $text-secondary;
+    border: 2px solid white;
+    padding: 0 3px;
+    border-radius: 10px;
   }
 }
+
+
+
+
+
+@media screen and (max-width: 768px) {
+ html, body {
+   .default-layout{
+     padding: 15% 0 0 0;
+     text-align: center;
+     .h1 {
+       font-size: 82px;
+     }
+   }
+ }
+}
+
+@media screen and (max-width: 500px) {
+  html, body {
+    .default-layout {
+      .h1 {
+        font-size: 48px;
+      }
+      .h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+
 

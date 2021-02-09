@@ -1,6 +1,12 @@
 <div class="bg-opacity"></div>
-<section class="home">
+<section class="home default-layout">
   <h1 class="heading">Sergey <span>Troian</span></h1>
   <h1 class="heading-description">Web Developer, Programmer, Designer & Entrepreneur</h1>
-  <div class="icons"></div>
+  <div class="icons">
+    <a href="{{icon.iconLink}}"
+       *ngFor="let icon of icons"
+       class="icon" target="_blank">
+      <img src="{{icon.src}}" alt="{{icon.alt}}">
+    </a>
+  </div>
 </section>

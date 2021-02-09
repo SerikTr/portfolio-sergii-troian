@@ -1,0 +1,94 @@
+@import "./src/styles/core";
+
+.about {
+
+  // about-inner
+  .about-inner {
+    display: flex;
+    justify-content: space-around;
+
+    .about-img {
+      padding: 60px;
+
+      img {
+        border-radius: 50%;
+        border: 3px solid $text-secondary;
+      }
+    }
+
+    .about-bio {
+      padding: 2%;
+
+      .h3-about {
+        font-size: 28px;
+        color: $text-secondary;
+      }
+
+      p {
+        font-size: 24px;
+        margin: 20px 0;
+        padding: 4px;
+        line-height: 36px;
+      }
+    }
+  }
+
+  // technologies-inner
+  .technologies-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+
+    .technology {
+      padding: 8px;
+      text-align: center;
+      width: 284px;
+      background: grey;
+      border-bottom: 5px solid $text-secondary;
+      margin: 20px 18px;
+      border-radius: 9px;
+
+      h2 {
+        color: darkorange;
+      }
+
+      a img {
+        margin-top: 10px;
+        border-radius: 9px;
+      }
+
+      .p-technology {
+        margin: 18px 0;
+        padding: 8px 12px;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .about {
+    .about-inner {
+      flex-direction: column;
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .about {
+    .about-inner {
+      .about-bio {
+        .h3-about {
+          font-size: 22px;
+        }
+        p {
+          font-size: 19px;
+        }
+      }
+    }
+  }
+}
+

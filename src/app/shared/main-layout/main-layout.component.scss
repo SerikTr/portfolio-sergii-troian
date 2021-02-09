@@ -1,7 +1,7 @@
 @import "./src/styles/core";
 
 header {
-  background: transparent;
+  background-color: $blue-background;
   position: fixed;
   z-index: 11;
   width: 100%;
@@ -10,7 +10,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 15vh;
     margin: 0 45px;
 
     .brand {
@@ -22,6 +21,7 @@ header {
 
     .nav-items {
       display: flex;
+
       .nav-item {
         margin: 15px;
 
@@ -34,22 +34,17 @@ header {
   }
 }
 
-@media screen and(max-width: 991px) {
-  header {
-    background: aqua;
-  }
-}
+//media
 
 @media screen and (max-width: 768px) {
 
 
   // btn
   .menu-btn {
-    position: absolute;
+    position: fixed;
     z-index: 15;
     right: 35px;
     top: 35px;
-    cursor: pointer;
     transition: all 0.5s ease-out;
 
 
@@ -62,7 +57,7 @@ header {
     }
 
     // Rotate Into X With Menu Lines
-     &.close {
+    &.close {
       transform: rotate(180deg);
 
       .btn-line {
@@ -88,23 +83,25 @@ header {
 
 
   header {
-    background: #fffb00;
+    background: $popup-background;
     height: 100vh;
     width: 100%;
     position: fixed;
 
 
-  &.close {
-    top: -100%;
-    transition: all 0.4s ease 0s;
-  }
-    &.active{
+    &.close {
+      top: -100%;
+      transition: all 0.4s ease 0s;
+    }
+
+    &.open {
       top: 0;
       transition: all 0.4s ease 0s;
     }
 
     .navigation {
       flex-flow: column wrap;
+
       .brand {
         display: none;
       }
@@ -122,8 +119,6 @@ header {
 
 @media screen and (max-width: 500px) {
   header {
-    background: #ff001e;
-
     .navigation {
       .nav-items {
         margin: 70px auto;

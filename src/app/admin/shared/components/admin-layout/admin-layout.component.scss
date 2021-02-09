@@ -1,0 +1,18 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: blue;
+  padding: 15px;
+
+  div ul{
+    display: flex;
+    li {
+      margin-right: 30px;
+    }
+  }
+}
+.admin-inner {
+  min-height: 100%;
+}
+

@@ -1,0 +1,49 @@
+@import "./src/styles/core";
+
+.contact {
+  min-height: 100vh;
+
+  .contact-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 16px;
+
+    .contact-boxes {
+      margin: 25px 15px;
+      padding: 15px;
+      border: 3px solid $text-primary;
+      font-size: 32px;
+      transition: 1s all;
+
+      span {
+        color: $text-secondary;
+      }
+    }
+
+    .contact-boxes:hover {
+      background-color: $text-secondary;
+      transform: scale(0.9);
+
+      span {
+        color: black;
+      }
+    }
+  }
+}
+
+// media
+
+@media screen and(max-width: 500px) {
+  .contact {
+    .contact-inner {
+
+      .contact-boxes {
+        margin: 15px 5px;
+        font-size: 24px;
+        padding: 10px 12px;
+      }
+    }
+  }
+}

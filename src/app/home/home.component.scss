@@ -1,27 +1,18 @@
 @import "./src/styles/core";
 
-.bg-opacity{
+.bg-opacity {
   background-image: url("../../assets/img/main-page-portfolio.jpg");
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 8;
-  //opacity: 0.6;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .home {
-  padding: 20vh 64px 0 64px;
-  background-color: $grey-background;
-  position: absolute;
   height: 100vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: 9;
 
   .heading {
     font-size: 96px;
@@ -36,27 +27,46 @@
     line-height: 32px;
     margin: 20px 0;
     padding: 3px 10px;
-    background: $grey-background;
+    background: $blue-background;
+    max-width: 690px;
+  }
+
+  .icons {
+    .icon {
+      padding: 10px;
+      transition: 1s all;
+    }
+  }
+
+  .icons .icon img:hover {
+    background-color: $text-secondary;
+    transform: scale(1.1)
   }
 }
 
+// @media
+
 @media screen and (max-width: 768px) {
   .home {
+    padding: 25vh 0 0 0;
     align-items: center;
     text-align: center;
 
     .heading {
       font-size: 54px;
     }
+
+    .heading-description {
+      max-width: 100%;
+    }
   }
 }
 
 @media screen and (max-width: 500px) {
   .home {
-   padding: 20vh 0 0 0;
 
     .heading {
-      font-size: 48px;
+      font-size: 40px;
     }
 
   }

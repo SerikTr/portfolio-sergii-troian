@@ -1,40 +1,27 @@
 <div class="menu-btn" (click)="status = !status"
-  [ngClass]="status ? 'active' : 'close'"
+  [ngClass]="status ? 'open' : 'close'"
 >
   <div class="btn-line"></div>
   <div class="btn-line"></div>
   <div class="btn-line"></div>
 </div>
-<header [ngClass]="status ? 'close' : 'active'">
+<header  [ngClass]="status ? 'close' : 'open'">
   <nav class="navigation">
     <div class="brand">
-      <a [routerLink]="['/']" >ST</a>
+      <a routerLink="{{defaultPage}}">ST</a>
     </div>
     <ul class="nav-items">
-      <li class="nav-item">
-        <a [routerLink]="['/']" class="nav-link">
-          Home
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/about']" class="nav-link">
-          About Me
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/work', 1]" class="nav-link">
-          My Work
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="['/contact']" class="nav-link">
-          How To Reach Me
-        </a>
+      <li class="nav-item"
+          routerLinkActive="active"
+          *ngFor="let nav of navigation">
+        <a routerLink="{{nav.routerL}}"
+           class="nav-link"
+           (click)="status = !status"
+           (window:resize)="onResize($event)"
+        >{{nav.name}}</a>
       </li>
     </ul>
-
   </nav>
 </header>
-
 <router-outlet></router-outlet>
 
