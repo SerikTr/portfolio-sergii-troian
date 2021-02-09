@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { WorkComponent } from './work/work.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
+import {SharedModule} from './admin/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MainLayoutComponent } from './shared/main-layout/main-layout.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

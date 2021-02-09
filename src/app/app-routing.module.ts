@@ -9,7 +9,7 @@ import {ContactComponent} from './contact/contact.component';
 const routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
-      {path: '', redirectTo: '/', pathMatch: 'full'},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'about', component: AboutComponent},
       {path: 'work', component: WorkComponent},

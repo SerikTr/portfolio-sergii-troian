@@ -6,6 +6,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { CreateWorkComponent } from './create-work/create-work.component';
 import { EditWorkComponent } from './edit-work/edit-work.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from './shared/services/auth.service';
+import {SharedModule} from './shared/shared.module';
 
 
 
@@ -14,6 +17,9 @@ import { EditWorkComponent } from './edit-work/edit-work.component';
   declarations: [AdminLayoutComponent, LoginPageComponent, DashboardPageComponent, CreateWorkComponent, EditWorkComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
@@ -26,7 +32,8 @@ import { EditWorkComponent } from './edit-work/edit-work.component';
       }
     ])
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthService]
 })
 export class AdminModule {
 

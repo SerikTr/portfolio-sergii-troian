@@ -1,8 +1,9 @@
+@import "./src/styles/core";
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: blue;
+  background-color: #0f476f;
   padding: 15px;
 
   div ul{
@@ -14,5 +15,7 @@ nav {
 }
 .admin-inner {
   min-height: 100%;
+  background-color: blanchedalmond;
 }
+
 
