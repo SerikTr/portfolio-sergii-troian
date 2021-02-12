@@ -1,1 +1,72 @@
-<p>create-work works!</p>
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  class="admin-page">
+  <h1>Add new project</h1>
+
+<!--  <div class="form-control"-->
+<!--       [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">-->
+<!--    <label-->
+<!--      for="email">Email:</label>-->
+<!--    <input-->
+<!--      formControlName="email"-->
+<!--      id="email" type="email" placeholder="your email...">-->
+<!--    <div class="validation"-->
+<!--         *ngIf="form.get('email').touched && form.get('email').invalid">-->
+<!--      <small *ngIf="form.get('email').errors.required">The field email must not be empty!</small>-->
+<!--      <small *ngIf="form.get('email').errors.email">Not correct email</small>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+  <div class="form-control"
+       [ngClass]="{ invalid: null && form.get('file').invalid}">
+    <label for="file">Add file</label>
+    <input  type="file"
+    formControlName="file" id="file">
+<!--    <div class="validation"-->
+<!--      *ngIf="form.get('file').touched && form.get('file').invalid">-->
+<!--            <small *ngIf="form.get('email').errors.required">The file must be added!</small>-->
+<!--    </div>-->
+  </div>
+
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('link').touched && form.get('link').invalid}">
+    <label for="link">Add project site</label>
+      <input type="text"
+             formControlName="link"
+             id="link">
+    <div class="validation"
+         *ngIf="form.get('link').touched && form.get('link').invalid">
+      <small *ngIf="form.get('link').errors.required">The link must be added!</small>
+    </div>
+  </div>
+
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('name').touched && form.get('name').invalid}">
+    <label for="name">Enter project name</label>
+    <input type="text"
+           formControlName="name"
+           id="name">
+    <div class="validation"
+         *ngIf="form.get('name').touched && form.get('name').invalid">
+      <small *ngIf="form.get('name').errors.required">The link must be added!</small>
+    </div>
+  </div>
+
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('github').touched && form.get('github').invalid}">
+    <label for="github">Enter Github page</label>
+    <input type="text"
+           formControlName="github"
+           id="github">
+    <div class="validation"
+         *ngIf="form.get('github').touched && form.get('github').invalid">
+      <small *ngIf="form.get('github').errors.required">The link must be added!</small>
+    </div>
+  </div>
+
+  <button type="submit"
+  [disabled]="form.invalid"
+  >Added project</button>
+</form>

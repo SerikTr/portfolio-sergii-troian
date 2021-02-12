@@ -3,7 +3,7 @@
     <a routerLink="/home">Portfolio Admin</a>
   </h1>
   <div>
-    <ul>
+    <ul *ngIf="auth.isAuthenticated()">
       <li routerLinkActive="active">
         <a [routerLink]="['/admin', 'dashboard']">Main Page</a>
       </li>

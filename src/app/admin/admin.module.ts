@@ -9,6 +9,7 @@ import { EditWorkComponent } from './edit-work/edit-work.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './shared/services/auth.service';
 import {SharedModule} from './shared/shared.module';
+import {AuthGuard} from './shared/services/auth.guard';
 
 
 
@@ -25,15 +26,15 @@ import {SharedModule} from './shared/shared.module';
         path: '', component: AdminLayoutComponent, children: [
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
           {path: 'login', component: LoginPageComponent},
-          {path: 'dashboard', component: DashboardPageComponent},
-          {path: 'create', component: CreateWorkComponent},
-          {path: 'work/:id/edit', component: EditWorkComponent}
+          {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
+          {path: 'create', component: CreateWorkComponent, canActivate: [AuthGuard]},
+          {path: 'work/:id/edit', component: EditWorkComponent, canActivate: [AuthGuard]}
         ]
       }
     ])
   ],
   exports: [RouterModule],
-  providers: [AuthService]
+  providers: [ AuthGuard]
 })
 export class AdminModule {
 

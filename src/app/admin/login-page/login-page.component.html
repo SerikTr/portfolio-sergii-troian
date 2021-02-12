@@ -1,5 +1,15 @@
-<form class="login-page" [formGroup]="form" (ngSubmit)="submit()">
+<form class="admin-page" [formGroup]="form" (ngSubmit)="submit()">
   <h2>Login in Admin Page</h2>
+
+  <div class="alert" *ngIf="auth.error$ | async as error">
+    {{error}}
+  </div>
+
+  <div class=" info" *ngIf="message">
+    {{message}}
+  </div>
+
+
   <div class="form-control"
        [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">
     <label

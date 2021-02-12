@@ -64,6 +64,67 @@ html, body {
     padding: 0 3px;
     border-radius: 10px;
   }
+
+  // admin-page
+  .admin-page {
+    width: 450px;
+    margin: 0 auto;
+    border: 1px solid white;
+    padding: 15px;
+    background-color: #0f476f;
+
+    h2 {
+      margin-bottom: 15px;
+      border-bottom: 2px solid white;
+    }
+
+    .form-control {
+      input {
+        min-width: 100%;
+        font-size: 16px;
+        padding: 3px 5px;
+        color: black;
+        margin-bottom: 10px;
+      }
+
+      .validation {
+        margin-bottom: 10px;
+
+        small {
+          color: red;
+        }
+      }
+    }
+
+    .invalid label {
+      color: #ff001e;
+    }
+
+    .invalid input {
+      border: 1px solid red;
+      background-color: #f6ff8b;
+    }
+
+    button {
+      width: 100%;
+      color: black;
+      padding: 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .alert {
+      background-color: #ff001e;
+      width: 100%;
+      padding: 3px 5px;
+    }
+    info {
+      background-color: floralwhite;
+      width: 100%;
+      padding: 3px 5px;
+      color: black;
+    }
+  }
 }
 
 
