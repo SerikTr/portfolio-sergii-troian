@@ -7,9 +7,10 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { CreateWorkComponent } from './create-work/create-work.component';
 import { EditWorkComponent } from './edit-work/edit-work.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from './shared/services/auth.service';
 import {SharedModule} from './shared/shared.module';
 import {AuthGuard} from './shared/services/auth.guard';
+import { HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -20,6 +21,7 @@ import {AuthGuard} from './shared/services/auth.guard';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     SharedModule,
     RouterModule.forChild([
       {

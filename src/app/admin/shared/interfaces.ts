@@ -13,9 +13,12 @@ export interface Project {
   github: string
   name: string
   link: string
-  file: string
   id?: string
   date: Date
+}
+
+export interface Image {
+  image: any
 }
 
 export interface FbCreateResponse {

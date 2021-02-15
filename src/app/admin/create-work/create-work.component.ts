@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component,  OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProjectsService} from '../shared/projects.service';
 import {Project} from '../shared/interfaces';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+
 
 
 @Component({
@@ -11,16 +14,21 @@ import {Project} from '../shared/interfaces';
 })
 export class CreateWorkComponent implements OnInit {
 
-  form: FormGroup
 
-  constructor(private projectsService: ProjectsService) { }
+  form: FormGroup
+  selectedFile: File = null
+
+
+
+  constructor(private projectsService: ProjectsService,
+              private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      file: new FormControl(null , Validators.required),
       link: new FormControl(null, Validators.required),
       name: new FormControl(null, Validators.required),
-      github: new FormControl(null, Validators.required),
+      github: new FormControl(null, Validators.required)
     })
   }
 
@@ -28,19 +36,33 @@ export class CreateWorkComponent implements OnInit {
     if (this.form.invalid){
       return
     }
-
     const project: Project = {
       github: this.form.value.github,
       name: this.form.value.name,
       link: this.form.value.link,
-      file: this.form.value.file,
       date: new Date()
     }
+
     this.projectsService.create(project).subscribe(() => {
       this.form.reset()
     })
 
-    console.log(project);
   }
 
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0]
+    console.log(this.selectedFile);
+  }
+
+  onUpload() {
+    const fb = new FormData()
+    fb.append('image', this.selectedFile, this.selectedFile.name)
+    this.http.post('gs://portfolio-sergey-troian.appspot.com', fb, {
+      reportProgress: true,
+      observe: 'events'
+    })
+      .subscribe(event => {
+        console.log(event);
+      })
+  }
 }

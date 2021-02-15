@@ -9,7 +9,7 @@ import { WorkComponent } from './work/work.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import {SharedModule} from './admin/shared/shared.module';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './admin/shared/auth.interceptor';
 
 const INTERCEPTOR_PROVIDER: Provider = {
@@ -30,7 +30,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]

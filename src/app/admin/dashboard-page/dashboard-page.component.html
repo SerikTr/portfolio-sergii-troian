@@ -1,25 +1,20 @@
-<section>
-  <table>
-    <tr>
-      <th>#</th>
-      <th>Name project</th>
-      <th>Link</th>
-      <th>Github page</th>
-      <th>Date</th>
-    </tr>
-  </table>
-  <tbody>
-  <tr>
-    <td>
-    </td>
-    <td>
-    </td>
-    <td>
-    </td>
-    <td>
-    </td>
-    <td>
-    </td>
-  </tr>
-  </tbody>
+<section *ngIf="projects.length; else loading">
+  <div class="inner">
+    <div class="card-about" *ngFor="let project of projects; let idx = index">
+      <h3>#</h3>
+      <p> {{ idx + 1 }}</p>
+      <h3>Name</h3>
+      <p>{{ project.name}}</p>
+      <h3>Link</h3>
+      <p>{{ project.link}}</p>
+      <h3>Github</h3>
+      <p>{{ project.github}}</p>
+      <h3>Date</h3>
+      <p>{{ project.date | date: 'medium'}}</p>
+      <button (click)="remove(project.id)">Remove project</button>
+    </div>
+  </div>
 </section>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
