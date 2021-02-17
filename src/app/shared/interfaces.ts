@@ -10,6 +10,7 @@ export interface FbAuthResponse {
 }
 
 export interface Project {
+  image: string
   github: string
   name: string
   link: string

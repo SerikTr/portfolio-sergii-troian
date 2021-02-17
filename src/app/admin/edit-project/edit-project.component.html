@@ -1,0 +1,62 @@
+<div *ngIf="form; else loading" class="main-edit">
+  <form [formGroup]="form">
+
+    <div class="form-control"
+         [ngClass]="{invalid: form.get('image').touched && form.get('image').invalid}">
+      <label for="image">Image url</label>
+      <input type="text"
+             formControlName="link"
+             id="image">
+      <div class="validation"
+           *ngIf="form.get('image').touched && form.get('image').invalid">
+        <small *ngIf="form.get('image').errors.required">The image url must be added!</small>
+      </div>
+    </div>
+
+    <div class="form-control"
+         [ngClass]="{invalid: form.get('name').touched && form.get('name').invalid}">
+      <label for="name">Project name</label>
+      <br>
+      <input type="text"
+             formControlName="name"
+             id="name">
+      <div class="validation"
+           *ngIf="form.get('name').touched && form.get('name').invalid">
+        <small *ngIf="form.get('name').errors.required">The link must be added!</small>
+      </div>
+    </div>
+
+    <div class="form-control"
+         [ngClass]="{invalid: form.get('link').touched && form.get('link').invalid}">
+      <label for="link">Project site</label>
+      <br>
+      <input type="text"
+             formControlName="link"
+             id="link">
+      <div class="validation"
+           *ngIf="form.get('link').touched && form.get('link').invalid">
+        <small *ngIf="form.get('link').errors.required">The link must be added!</small>
+      </div>
+    </div>
+
+    <div class="form-control"
+         [ngClass]="{invalid: form.get('github').touched && form.get('github').invalid}">
+      <label for="github">Github page</label>
+      <br>
+      <input type="text"
+             formControlName="github"
+             id="github">
+      <div class="validation"
+           *ngIf="form.get('github').touched && form.get('github').invalid">
+        <small *ngIf="form.get('github').errors.required">The link must be added!</small>
+      </div>
+    </div>
+  </form>
+
+  <button [disabled]="form.invalid || submitted"
+          (click)="submit()"
+    type="submit">Refresh</button>
+</div>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

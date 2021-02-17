@@ -1,54 +1,42 @@
 <section class="work default-layout">
     <h1 class="h1">My <span>Work</span></h1>
   <h2 class="h2">Check out of my projects...</h2>
-  <div class="projects">
-    <div class="item">
-      <div class="item-img"><a href="" target="_blank"><img src="../../assets/img/projects/organizer-img.png" alt=""></a></div>
-      <div class="inner-button">
-        <button>
+  <div class="projects" *ngIf="projects$ | async as projects; else loading">
+
+
+    <div class="item" *ngFor="let project of projects">
+      <div class="item-img"><a href="{{project.link}}" target="_blank"><img src="{{project.image}}" alt=""></a></div>
+      <div class="inner-a">
+        <a href="{{project.link}}" target="_blank">
           <img src="../../assets/img/social-icons/eye.png" alt="">
-          Name project</button>
-        <button>
+          {{project.name}}</a>
+        <a href="{{project.github}}" target="_blank">
           <img src="../../assets/img/social-icons/github.png" alt="">
-          Github</button>
+          Github</a>
       </div>
     </div>
-    <div class="item">
-      <div class="item-img"><a href="" target="_blank"><img src="../../assets/img/projects/organizer-img.png" alt=""></a></div>
-      <div class="inner-button">
-        <button>
-          <img src="../../assets/img/social-icons/eye.png" alt="">
-          Name project</button>
-        <button>
-          <img src="../../assets/img/social-icons/github.png" alt="">
-          Github</button>
-      </div>
-    </div>
-    <div class="item">
-      <div class="item-img"><a href="" target="_blank"><img src="../../assets/img/projects/organizer-img.png" alt=""></a></div>
-      <div class="inner-button">
-        <button>
-          <img src="../../assets/img/social-icons/eye.png" alt="">
-          Name project</button>
-        <button>
-          <img src="../../assets/img/social-icons/github.png" alt="">
-          Github</button>
-      </div>
     </div>
 
-    <div class="item">
-      <div class="item-img"><a href="" target="_blank"><img src="../../assets/img/projects/organizer-img.png" alt=""></a></div>
-      <div class="inner-button">
-        <button>
-          <img src="../../assets/img/social-icons/eye.png" alt="">
-          Name project</button>
-        <button>
-          <img src="../../assets/img/social-icons/github.png" alt="">
-          Github</button>
-      </div>
-    </div>
 
-    </div>
+  <ng-template #loading>
+   <div class="inner-loader">
+     <div class="loader">
+       <svg viewBox="0 0 80 80">
+         <circle id="test" cx="40" cy="40" r="32"></circle>
+       </svg>
+     </div>
+     <div class="loader triangle">
+       <svg viewBox="0 0 86 80">
+         <polygon points="43 8 79 72 7 72"></polygon>
+       </svg>
+     </div>
+     <div class="loader">
+       <svg viewBox="0 0 80 80">
+         <rect x="8" y="8" width="64" height="64"></rect>
+       </svg>
+     </div>
+   </div>
+  </ng-template>
 
 </section>
 

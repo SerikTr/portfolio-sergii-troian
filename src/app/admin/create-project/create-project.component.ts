@@ -1,18 +1,19 @@
 import {Component,  OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ProjectsService} from '../shared/projects.service';
-import {Project} from '../shared/interfaces';
+import {ProjectsService} from '../../shared/projects.service';
+import {Project} from '../../shared/interfaces';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 
 
 @Component({
   selector: 'app-create-work',
-  templateUrl: './create-work.component.html',
-  styleUrls: ['./create-work.component.scss']
+  templateUrl: './create-project.component.html',
+  styleUrls: ['./create-project.component.scss']
 })
-export class CreateWorkComponent implements OnInit {
+export class CreateProjectComponent implements OnInit {
 
 
   form: FormGroup
@@ -21,11 +22,12 @@ export class CreateWorkComponent implements OnInit {
 
 
   constructor(private projectsService: ProjectsService,
-              private http: HttpClient
+              private storage: AngularFireStorage
   ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
+      image: new FormControl(null, Validators.required),
       link: new FormControl(null, Validators.required),
       name: new FormControl(null, Validators.required),
       github: new FormControl(null, Validators.required)
@@ -37,6 +39,7 @@ export class CreateWorkComponent implements OnInit {
       return
     }
     const project: Project = {
+      image: this.form.value.image,
       github: this.form.value.github,
       name: this.form.value.name,
       link: this.form.value.link,
@@ -49,20 +52,16 @@ export class CreateWorkComponent implements OnInit {
 
   }
 
-  onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0]
-    console.log(this.selectedFile);
-  }
 
-  onUpload() {
-    const fb = new FormData()
-    fb.append('image', this.selectedFile, this.selectedFile.name)
-    this.http.post('gs://portfolio-sergey-troian.appspot.com', fb, {
-      reportProgress: true,
-      observe: 'events'
-    })
-      .subscribe(event => {
-        console.log(event);
-      })
-  }
+  //TODO add loading file with helping storage firebase
+
+  // onFileSelected(event) {
+  //   this.selectedFile = <File>event.target.files[0]
+  // }
+
+
+  // onUpload() {
+  //   console.log(this.selectedFile);
+  //   this.storage.upload("/files/" + this.selectedFile.name, this.selectedFile)
+  // }
 }

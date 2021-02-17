@@ -1,28 +1,37 @@
-<div class="form-control"
->
-  <label for="file">Add file</label>
-  <input  type="file"
-          (change)="onFileSelected($event)"
-          id="file">
-  <button
-    (click)="onUpload()"
-  >Enter image</button>
-</div>
-
 <form
   [formGroup]="form"
   (ngSubmit)="submit()"
   class="admin-page">
   <h1>Add new project</h1>
 
+<!--  <div class="form-control">-->
+<!--    <label for="file">Add file</label>-->
+<!--    <input type="file"-->
+<!--           (change)="onFileSelected($event)"-->
+<!--           accept="*.png.jpg.jpeg"-->
+<!--           id="file">-->
+<!--  </div>-->
+
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('image').touched && form.get('image').invalid}">
+    <label for="image">Image url</label>
+    <input type="text"
+           formControlName="link"
+           id="image">
+    <div class="validation"
+         *ngIf="form.get('image').touched && form.get('image').invalid">
+      <small *ngIf="form.get('image').errors.required">The image url must be added!</small>
+    </div>
+  </div>
+
 
 
   <div class="form-control"
        [ngClass]="{invalid: form.get('link').touched && form.get('link').invalid}">
     <label for="link">Project site</label>
-      <input type="text"
-             formControlName="link"
-             id="link">
+    <input type="text"
+           formControlName="link"
+           id="link">
     <div class="validation"
          *ngIf="form.get('link').touched && form.get('link').invalid">
       <small *ngIf="form.get('link').errors.required">The link must be added!</small>
@@ -54,6 +63,8 @@
   </div>
 
   <button type="submit"
-  [disabled]="form.invalid"
-  >Added project</button>
+          [disabled]="form.invalid"
+          (click)="onUpload()"
+  >Added project
+  </button>
 </form>

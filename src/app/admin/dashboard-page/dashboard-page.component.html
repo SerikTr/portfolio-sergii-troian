@@ -1,20 +1,26 @@
-<section *ngIf="projects.length; else loading">
+<section
+  *ngIf="projects.length; else loading">
   <div class="inner">
-    <div class="card-about" *ngFor="let project of projects; let idx = index">
-      <h3>#</h3>
-      <p> {{ idx + 1 }}</p>
-      <h3>Name</h3>
-      <p>{{ project.name}}</p>
-      <h3>Link</h3>
-      <p>{{ project.link}}</p>
-      <h3>Github</h3>
-      <p>{{ project.github}}</p>
-      <h3>Date</h3>
-      <p>{{ project.date | date: 'medium'}}</p>
-      <button (click)="remove(project.id)">Remove project</button>
+    <div class="form-control">
+      <input type="text"
+             [(ngModel)]="searchStr"
+             placeholder="Search project...">
+    </div>
+    <div class="card-about" *ngFor="let project of projects | searchProject: searchStr; let idx = index">
+      <p><span>#</span> {{ idx + 1 }}</p>
+      <p><span>Image url</span>{{project.image}}</p>
+      <p><span>Name</span> {{ project.name}}</p>
+      <p><span>Link</span>{{ project.link}}</p>
+      <p><span>Github</span>{{ project.github}}</p>
+      <p><span>Date</span>{{ project.date | date: 'medium'}}</p>
+      <button
+      [routerLink]="['/admin', 'project', project.id, 'edit']"
+      >Edit project</button>
+      <a (click)="remove(project.id)">Remove project</a>
     </div>
   </div>
 </section>
+
 <ng-template #loading>
   <p>Loading...</p>
 </ng-template>

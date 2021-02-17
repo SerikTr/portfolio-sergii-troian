@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProjectsService} from '../shared/projects.service';
+import {Observable} from 'rxjs';
+import {Project} from '../shared/interfaces';
+
+
 
 @Component({
   selector: 'app-work',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkComponent implements OnInit {
 
-  constructor() { }
+  projects$: Observable<Project[]>;
+  image = '../../assets/img/projects/project1.jpg'
+
+  images = [
+    {src: '../../assets/img/projects/project1.jpg'}
+    ]
+
+
+
+  constructor(private projectsService: ProjectsService) {
+  }
 
   ngOnInit(): void {
+    this.loader();
+
+  }
+
+
+  loader() {
+    setTimeout(() => {
+      this.projects$ = this.projectsService.getAll();
+    }, 1800);
   }
 
 }
