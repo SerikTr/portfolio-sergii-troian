@@ -18,9 +18,6 @@ export interface Project {
   date: Date
 }
 
-export interface Image {
-  image: any
-}
 
 export interface FbCreateResponse {
   name: string

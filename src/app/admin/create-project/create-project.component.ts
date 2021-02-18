@@ -1,11 +1,7 @@
-import {Component,  OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProjectsService} from '../../shared/projects.service';
 import {Project} from '../../shared/interfaces';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {AngularFireStorage} from '@angular/fire/storage';
-
 
 
 @Component({
@@ -16,14 +12,12 @@ import {AngularFireStorage} from '@angular/fire/storage';
 export class CreateProjectComponent implements OnInit {
 
 
-  form: FormGroup
-  selectedFile: File = null
+  form: FormGroup;
 
 
-
-  constructor(private projectsService: ProjectsService,
-              private storage: AngularFireStorage
-  ) { }
+  constructor(private projectsService: ProjectsService
+  ) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -31,12 +25,12 @@ export class CreateProjectComponent implements OnInit {
       link: new FormControl(null, Validators.required),
       name: new FormControl(null, Validators.required),
       github: new FormControl(null, Validators.required)
-    })
+    });
   }
 
-  submit(){
-    if (this.form.invalid){
-      return
+  submit() {
+    if (this.form.invalid) {
+      return;
     }
     const project: Project = {
       image: this.form.value.image,
@@ -44,24 +38,12 @@ export class CreateProjectComponent implements OnInit {
       name: this.form.value.name,
       link: this.form.value.link,
       date: new Date()
-    }
+    };
 
     this.projectsService.create(project).subscribe(() => {
-      this.form.reset()
-    })
+      this.form.reset();
+    });
 
   }
 
-
-  //TODO add loading file with helping storage firebase
-
-  // onFileSelected(event) {
-  //   this.selectedFile = <File>event.target.files[0]
-  // }
-
-
-  // onUpload() {
-  //   console.log(this.selectedFile);
-  //   this.storage.upload("/files/" + this.selectedFile.name, this.selectedFile)
-  // }
 }

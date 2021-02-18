@@ -15,7 +15,6 @@
     .item-img {
       margin: 5px;
 
-
       a img {
         border: 3px solid $text-primary;
         width: 100%;
@@ -25,7 +24,7 @@
       }
 
       a img:hover {
-        opacity: 0.5;
+        opacity: 0.65;
         transition: 1s;
         border-color: $text-secondary;
 
@@ -51,7 +50,6 @@
         }
       }
     }
-
 
     .inner-a a:hover {
       background-color: $text-secondary;

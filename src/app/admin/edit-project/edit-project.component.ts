@@ -13,46 +13,47 @@ import {Subscription} from 'rxjs';
 })
 export class EditProjectComponent implements OnInit, OnDestroy {
 
-  form: FormGroup
-  project: Project
-  submitted = false
+  form: FormGroup;
+  project: Project;
+  submitted = false;
 
-  uSub: Subscription
+  uSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private projectsService: ProjectsService
-  ) { }
-
-  ngOnInit(): void {
-    this.editRoute()
+  ) {
   }
 
-  editRoute(){
+  ngOnInit(): void {
+    this.editRoute();
+  }
+
+  editRoute() {
     this.route.params
       .pipe(switchMap((params: Params) => {
-        return this.projectsService.getById(params['id'])
+        return this.projectsService.getById(params['id']);
       })).subscribe((project: Project) => {
-        this.project = project
-        this.form = new FormGroup({
-          image: new FormControl(project.name, Validators.required),
-          name: new FormControl(project.name, Validators.required),
-          link: new FormControl(project.link, Validators.required),
-          github: new FormControl(project.github, Validators.required)
-        })
-    })
+      this.project = project;
+      this.form = new FormGroup({
+        image: new FormControl(project.name, Validators.required),
+        name: new FormControl(project.name, Validators.required),
+        link: new FormControl(project.link, Validators.required),
+        github: new FormControl(project.github, Validators.required)
+      });
+    });
 
   }
 
   ngOnDestroy() {
-    this.uSub.unsubscribe()
+    this.uSub.unsubscribe();
   }
 
   submit() {
-    if(this.form.invalid){
-      return
+    if (this.form.invalid) {
+      return;
     }
-    this.submitted = true
+    this.submitted = true;
 
     this.uSub = this.projectsService.update({
       ...this.project,
@@ -61,7 +62,7 @@ export class EditProjectComponent implements OnInit, OnDestroy {
       link: this.form.value.link,
       github: this.form.value.github
     }).subscribe(() => {
-      this.submitted = false
-    })
+      this.submitted = false;
+    });
   }
 }

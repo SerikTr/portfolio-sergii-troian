@@ -1,4 +1,5 @@
 @import "./src/styles/core";
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -6,13 +7,15 @@ nav {
   background-color: #0f476f;
   padding: 15px;
 
-  div ul{
+  div ul {
     display: flex;
+
     li {
       margin-right: 30px;
     }
   }
 }
+
 .admin-inner {
   min-height: 100%;
   background-color: #eccdff;

@@ -5,12 +5,14 @@
   padding: 30px 10px;
   background: blue;
   margin: 0 auto;
+
   .form-control {
     width: 560px;
 
     label {
       margin-left: 7px;
     }
+
     input {
       color: black;
       font-size: 16px;
@@ -19,6 +21,7 @@
       width: 100%;
     }
   }
+
   button {
     position: absolute;
     background: green;

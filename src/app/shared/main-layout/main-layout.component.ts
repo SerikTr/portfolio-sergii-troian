@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
-export class MainLayoutComponent implements OnInit{
+export class MainLayoutComponent implements OnInit {
 
   status: boolean = false;
   defaultPage = '/home';
@@ -21,7 +21,6 @@ export class MainLayoutComponent implements OnInit{
 
   ngOnInit(): void {
   }
-
 
 
 }

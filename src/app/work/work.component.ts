@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {Project} from '../shared/interfaces';
 
 
-
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
@@ -13,12 +12,7 @@ import {Project} from '../shared/interfaces';
 export class WorkComponent implements OnInit {
 
   projects$: Observable<Project[]>;
-  image = '../../assets/img/projects/project1.jpg'
-
-  images = [
-    {src: '../../assets/img/projects/project1.jpg'}
-    ]
-
+  image = '../../assets/img/projects/project1.jpg';
 
 
   constructor(private projectsService: ProjectsService) {
@@ -33,7 +27,7 @@ export class WorkComponent implements OnInit {
   loader() {
     setTimeout(() => {
       this.projects$ = this.projectsService.getAll();
-    }, 1800);
+    }, 1500);
   }
 
 }

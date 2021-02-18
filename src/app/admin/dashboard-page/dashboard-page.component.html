@@ -14,8 +14,9 @@
       <p><span>Github</span>{{ project.github}}</p>
       <p><span>Date</span>{{ project.date | date: 'medium'}}</p>
       <button
-      [routerLink]="['/admin', 'project', project.id, 'edit']"
-      >Edit project</button>
+        [routerLink]="['/admin', 'project', project.id, 'edit']"
+      >Edit project
+      </button>
       <a (click)="remove(project.id)">Remove project</a>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -12,11 +12,11 @@ export class ContactComponent implements OnInit {
     {name: 'Email: ', link: 'seriktr@gmail.com', href: 'mailto:seriktr@gmail.com'},
     {name: 'Phone: ', link: '+48 792 083 353', href: 'tel:+48792083353'},
     {name: 'Address: ', link: 'Warsaw city 01-001', href: 'https://www.google.com/maps/'}
-  ]
+  ];
 
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

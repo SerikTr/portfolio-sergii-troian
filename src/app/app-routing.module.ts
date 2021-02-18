@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {MainLayoutComponent} from './shared/main-layout/main-layout.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', loadChildren:  () => import('./admin/admin.module').then(m => m.AdminModule)
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
@@ -27,4 +27,5 @@ const routes: Routes = [
   })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
