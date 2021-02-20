@@ -1,74 +1,77 @@
 @import "./src/styles/core";
 
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
-  justify-content: space-between;
+.work {
+background: linear-gradient(90deg, rgba(118, 176, 255, 1) 24%, rgba(230, 225, 225, 1) 99%);
 
 
-  .item {
-    width: 50%;
-    margin: 10px auto;
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-between;
 
 
-    .item-img {
-      margin: 5px;
+    .item {
+      width: 50%;
+      margin: 10px auto;
 
-      a img {
-        border: 3px solid $text-primary;
-        width: 100%;
-        height: 50vh;
-        object-fit: cover;
 
-      }
+      .item-img {
+        margin: 5px;
 
-      a img:hover {
-        opacity: 0.65;
-        transition: 1s;
-        border-color: $text-secondary;
+        a img {
+          border: 3px solid $text-primary;
+          width: 100%;
+          height: 50vh;
+          object-fit: cover;
 
-      }
-    }
+        }
 
-    .inner-a {
-      display: flex;
-      flex-direction: column;
-      margin: 5px;
+        a img:hover {
+          opacity: 0.65;
+          transition: 1s;
+          border-color: $text-secondary;
 
-      a {
-        background: $blue-background;
-        color: white;
-        padding: 5px 30px;
-        width: 100%;
-        margin-bottom: 4px;
-        font-size: 18px;
-        text-align: start;
-
-        img {
-          margin: 0 5px -5px 0;
         }
       }
-    }
 
-    .inner-a a:hover {
-      background-color: $text-secondary;
-      transition: 1s;
-    }
+      .inner-a {
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
 
-    a:active, a:focus {
-      outline: none;
-    }
+        a {
+          background: $blue-background;
+          color: white;
+          padding: 5px 30px;
+          width: 100%;
+          margin-bottom: 4px;
+          font-size: 18px;
+          text-align: start;
 
-    a::-moz-focus-inner {
-      border: 0;
+          img {
+            margin: 0 5px -5px 0;
+          }
+        }
+      }
+
+      .inner-a a:hover {
+        background-color: $text-secondary;
+        transition: 1s;
+      }
+
+      a:active,
+      a:focus {
+        outline: none;
+      }
+
+      a::-moz-focus-inner {
+        border: 0;
+      }
     }
   }
 }
 
-.loading {
-
-}
 
 // loader
 .loader {
@@ -221,12 +224,16 @@
 
 
 @media screen and(max-width: 768px) {
-  .projects {
-    flex-direction: column;
-    margin: 10px;
-
-    .item {
-      width: 100%;
+  .work {
+    .projects {
+      flex-direction: column;
+      margin: 10px;
+      padding: 10px;
+      .item {
+        width: 100%;
+      }
     }
   }
 }
+
+

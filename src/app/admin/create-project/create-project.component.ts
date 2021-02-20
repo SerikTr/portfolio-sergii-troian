@@ -28,7 +28,7 @@ export class CreateProjectComponent implements OnInit {
     });
   }
 
-  submit() {
+  submit(){
     if (this.form.invalid) {
       return;
     }

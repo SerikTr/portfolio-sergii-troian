@@ -19,15 +19,8 @@ export class WorkComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loader();
+     this.projects$ = this.projectsService.getAll();
 
-  }
-
-
-  loader() {
-    setTimeout(() => {
-      this.projects$ = this.projectsService.getAll();
-    }, 1500);
   }
 
 }
